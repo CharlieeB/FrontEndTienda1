@@ -36,7 +36,7 @@ a{
 }
 
 img{
-    max-width: 100%;
+    width: 100%;
 }
 
 .contenedor {
@@ -136,13 +136,11 @@ h3 {
     padding: 1rem;/*Alineas el contenido del recuadro morado*/
 }
 
-.producto__imagen {
-width: 100%;/*Centras la imagen*/
-}
+/*.producto__imagen {
+width: 100%;       /*Centras la imagen*/
+/* } / */
 
-.producto__informacion {
 
-}
 
 .producto__nombre {
         font-size: 4rem;
@@ -200,12 +198,80 @@ width: 100%;/*Centras la imagen*/
 }
 
 .nosotros__imagen {
-    grid-row: 1 / 2;
-    width: 100%;
+    grid-row: 1 / 2;/*Sirve para que la imagen se quede arriba y no abajo*/
+    /*width: 100%;*/
 }
 
 @media (min-width: 768px) {
     .nosotros__imagen {
-        grid-column: 2 / 3;
+        grid-column: 2 / 3;/*Sirve para que la imagen se quede a la derecha y no a la izquierda*/
     }   
+}
+
+/** Bloques **/
+.bloques {/*Primero me encargo que se vea bien dispositivos moviles*/
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+@media (min-width: 768px)  {/*Despues me encargo que se vea bien en pc*/
+    .bloques {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.bloque {
+    text-align: center;
+}
+
+/*.bloque__imagen {
+    width: 100%;
+}*/
+
+.bloque__titulo {
+    margin: 0;/*Le quito los margenes al titulo*/
+}
+
+/** Página del producto **/
+@media (min-width: 768px) {
+    .camisa{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+    
+}
+
+.formulario {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.formulario__campo {
+    /*border-color: var(--primarioOscuro);
+    border-width: 1rem;
+    border-style: solid;*/
+    border: 1rem solid var(--primarioOscuro);/*Lo mismo de arriba*/
+    background-color: transparent;
+    color: var(--blanco);
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1rem;
+}
+
+.formulario__submit {
+    background-color: var(--secundario);
+    border: none;
+    font-size: 2rem;
+    font-family: var(--fuentePrincipal);
+    padding: 2rem;
+    transition: background-color .3s ease; /*Transicion del colores de la linea 255 y 265*/
+    grid-column: 1 / 3;
+}
+
+.formulario__submit:hover {
+    cursor: pointer;
+    background-color: var(--secundarioOscuro);
 }
